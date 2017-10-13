@@ -158,12 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 106B9D431DE275AE00B580C7 /* Build configuration list for PBXNativeTarget "RWCards" */;
 			buildPhases = (
-				94CEDB4B4FD413EFE2363645 /* 📦 Check Pods Manifest.lock */,
+				94CEDB4B4FD413EFE2363645 /* [CP] Check Pods Manifest.lock */,
 				106B9D2D1DE275AE00B580C7 /* Sources */,
 				106B9D2E1DE275AE00B580C7 /* Frameworks */,
 				106B9D2F1DE275AE00B580C7 /* Resources */,
-				3BD1E2FAD82D930C708669B4 /* 📦 Embed Pods Frameworks */,
-				9E3E970B1E5BB616D863C2DB /* 📦 Copy Pods Resources */,
+				3BD1E2FAD82D930C708669B4 /* [CP] Embed Pods Frameworks */,
+				9E3E970B1E5BB616D863C2DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,44 +223,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3BD1E2FAD82D930C708669B4 /* 📦 Embed Pods Frameworks */ = {
+		3BD1E2FAD82D930C708669B4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RWCards/Pods-RWCards-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SimpleLogger/SimpleLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RWCards/Pods-RWCards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		94CEDB4B4FD413EFE2363645 /* 📦 Check Pods Manifest.lock */ = {
+		94CEDB4B4FD413EFE2363645 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RWCards-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9E3E970B1E5BB616D863C2DB /* 📦 Copy Pods Resources */ = {
+		9E3E970B1E5BB616D863C2DB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

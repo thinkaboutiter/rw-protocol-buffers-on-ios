@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.5.1)
+  - SimpleLogger (1.1.3)
+  - SwiftProtobuf (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - SimpleLogger (from `https://github.com/thinkaboutiter/SimpleLogger.git`, tag `1.1.3`)
+  - SwiftProtobuf (~> 1.0)
+
+EXTERNAL SOURCES:
+  SimpleLogger:
+    :git: https://github.com/thinkaboutiter/SimpleLogger.git
+    :tag: 1.1.3
+
+CHECKOUT OPTIONS:
+  SimpleLogger:
+    :git: https://github.com/thinkaboutiter/SimpleLogger.git
+    :tag: 1.1.3
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  SimpleLogger: aa148db0d914b1e7b6d1be4e1fb0a6f2a84e6c68
+  SwiftProtobuf: 1e1e11595316724935ffe16c18ed79363a8808ac
+
+PODFILE CHECKSUM: e53d8a1ea11777916a6a4f37cee9b81026d41e31
+
+COCOAPODS: 1.3.1

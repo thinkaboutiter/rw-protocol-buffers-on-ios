@@ -47,7 +47,12 @@ class CardViewController: UIViewController {
 		applyBusinessCardAppearance()
         backButton.isHidden = isCurrentUser
         
-        self.fetchCurrentUser()
+        if self.isCurrentUser {
+            self.fetchCurrentUser()
+        }
+        else {
+            // TODO: handle speaker
+        }
 	}
 	
 	// MARK: Appearance
@@ -93,6 +98,7 @@ fileprivate extension CardViewController {
         self.emailLabel.text = contact.email
         self.githubLabel.text = contact.githubLink
         self.profileImageView.image = UIImage(named: contact.imageName)
+        self.attendeeTypeLabel.text = contact.contactTypeToString()
     }
 }
 

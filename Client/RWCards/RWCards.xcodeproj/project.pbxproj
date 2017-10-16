@@ -18,6 +18,10 @@
 		1080494E1DE3BA150002BD64 /* SpeakersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1080494D1DE3BA150002BD64 /* SpeakersListViewController.swift */; };
 		108049511DE3BB7D0002BD64 /* SpeakerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108049501DE3BB7D0002BD64 /* SpeakerCell.swift */; };
 		108049541DE3C1800002BD64 /* NSAttributedString+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108049531DE3C1800002BD64 /* NSAttributedString+helper.swift */; };
+		4F0627821F94D24F00096D84 /* contact.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0627811F94C99F00096D84 /* contact.pb.swift */; };
+		4F0627841F94D2DF00096D84 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0627831F94D2DF00096D84 /* AppConstants.swift */; };
+		4F0627861F94D4E700096D84 /* ErrorCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0627851F94D4E700096D84 /* ErrorCreator.swift */; };
+		4F0627881F95091900096D84 /* contact+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0627871F95091900096D84 /* contact+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,9 @@
 		108049501DE3BB7D0002BD64 /* SpeakerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerCell.swift; sourceTree = "<group>"; };
 		108049531DE3C1800002BD64 /* NSAttributedString+helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+helper.swift"; sourceTree = "<group>"; };
 		4F0627811F94C99F00096D84 /* contact.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contact.pb.swift; sourceTree = "<group>"; };
+		4F0627831F94D2DF00096D84 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		4F0627851F94D4E700096D84 /* ErrorCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCreator.swift; sourceTree = "<group>"; };
+		4F0627871F95091900096D84 /* contact+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "contact+extensions.swift"; sourceTree = "<group>"; };
 		DF5EA85F39595D302E59A663 /* Pods_RWCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RWCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3270109B78E91A85B85F0C /* Pods-RWCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RWCards/Pods-RWCards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				4F0627811F94C99F00096D84 /* contact.pb.swift */,
+				4F0627871F95091900096D84 /* contact+extensions.swift */,
 			);
 			name = "Protocol Buffer Objects";
 			sourceTree = "<group>";
@@ -131,6 +139,8 @@
 		108049521DE3C1720002BD64 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4F0627831F94D2DF00096D84 /* AppConstants.swift */,
+				4F0627851F94D4E700096D84 /* ErrorCreator.swift */,
 				108049531DE3C1800002BD64 /* NSAttributedString+helper.swift */,
 			);
 			name = Utilities;
@@ -288,12 +298,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				106B9D491DE277E400B580C7 /* RWService.swift in Sources */,
+				4F0627861F94D4E700096D84 /* ErrorCreator.swift in Sources */,
+				4F0627841F94D2DF00096D84 /* AppConstants.swift in Sources */,
 				106B9D351DE275AE00B580C7 /* AppDelegate.swift in Sources */,
 				106B9D471DE275FC00B580C7 /* CardViewController.swift in Sources */,
 				108049511DE3BB7D0002BD64 /* SpeakerCell.swift in Sources */,
 				1080494E1DE3BA150002BD64 /* SpeakersListViewController.swift in Sources */,
 				106B9D531DE2888D00B580C7 /* SpeakersViewModel.swift in Sources */,
+				4F0627881F95091900096D84 /* contact+extensions.swift in Sources */,
 				108049541DE3C1800002BD64 /* NSAttributedString+helper.swift in Sources */,
+				4F0627821F94D24F00096D84 /* contact.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,7 @@
 */
 
 import UIKit
+import SimpleLogger
 
 class CardViewController: UIViewController {
 	
@@ -45,6 +46,13 @@ class CardViewController: UIViewController {
 		super.viewWillAppear(animated)
 		applyBusinessCardAppearance()
         backButton.isHidden = isCurrentUser
+        
+        if self.isCurrentUser {
+            self.fetchCurrentUser()
+        }
+        else {
+            // TODO: handle speaker
+        }
 	}
 	
 	// MARK: Appearance
@@ -68,3 +76,29 @@ class CardViewController: UIViewController {
 		_ = navigationController?.popViewController(animated: true)
 	}
 }
+
+// MARK: - Networking
+fileprivate extension CardViewController {
+    
+    func fetchCurrentUser() {
+        RWService.shared.getCurrentUser(success: { (contact: Contact) in
+            self.configure(with: contact)
+        }) { (error: NSError) in
+            Logger.error.message("Error getting current user!").object(error)
+        }
+    }
+}
+
+// MARK: - UI configurations
+fileprivate extension CardViewController {
+    
+    func configure(with contact: Contact) {
+        self.attendeeNameLabel.attributedText = NSAttributedString.attributedString(for: contact.firstName, and: contact.lastName)
+        self.twitterLabel.text = contact.twitterName
+        self.emailLabel.text = contact.email
+        self.githubLabel.text = contact.githubLink
+        self.profileImageView.image = UIImage(named: contact.imageName)
+        self.attendeeTypeLabel.text = contact.contactTypeToString()
+    }
+}
+

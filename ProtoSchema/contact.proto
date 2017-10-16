@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message Contact {
+
+	enum ContactType {
+		SPEAKER = 0;
+    	ATTENDANT = 1;
+    	VOLUNTEER = 2;
+  	}
+
+  	string first_name = 1;
+  	string last_name = 2;
+  	string twitter_name = 3;
+  	string email = 4;
+  	string github_link = 5;
+  	ContactType type = 6;
+  	string imageName = 7;
+};
+
+message Speakers {
+  	repeated Contact contacts = 1;
+}

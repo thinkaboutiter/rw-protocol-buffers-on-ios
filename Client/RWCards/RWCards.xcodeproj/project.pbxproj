@@ -34,6 +34,7 @@
 		1080494D1DE3BA150002BD64 /* SpeakersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakersListViewController.swift; sourceTree = "<group>"; };
 		108049501DE3BB7D0002BD64 /* SpeakerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerCell.swift; sourceTree = "<group>"; };
 		108049531DE3C1800002BD64 /* NSAttributedString+helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+helper.swift"; sourceTree = "<group>"; };
+		4F0627811F94C99F00096D84 /* contact.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contact.pb.swift; sourceTree = "<group>"; };
 		DF5EA85F39595D302E59A663 /* Pods_RWCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RWCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3270109B78E91A85B85F0C /* Pods-RWCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RWCards/Pods-RWCards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +90,7 @@
 		106B9D4A1DE27A9900B580C7 /* Protocol Buffer Objects */ = {
 			isa = PBXGroup;
 			children = (
+				4F0627811F94C99F00096D84 /* contact.pb.swift */,
 			);
 			name = "Protocol Buffer Objects";
 			sourceTree = "<group>";

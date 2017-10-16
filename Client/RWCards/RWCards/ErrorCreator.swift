@@ -16,7 +16,7 @@ enum ErrorCreator {
     case invalidResourcesReceived
     case custom(code: Int, message: String)
     
-    static let domain: String = "MektoubeErrorDomain"
+    static let domain: String = "ApplicationErrorDomain"
     static let teapotCode: Int = 418
     
     func error() -> NSError {

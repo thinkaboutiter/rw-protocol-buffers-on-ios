@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mhh-IY-0mI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mhh-IY-0mI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -168,6 +168,7 @@
                         <color key="backgroundColor" red="0.13331398367881775" green="0.13334444165229797" blue="0.13331207633018494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FG7-1h-1rq" firstAttribute="leading" secondItem="T62-Mk-120" secondAttribute="leadingMargin" id="3PJ-sb-Teb"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FG7-1h-1rq" secondAttribute="trailingMargin" id="8CT-PK-ANB"/>
                             <constraint firstAttribute="trailing" secondItem="hSB-be-9e1" secondAttribute="trailing" constant="50" id="IV2-I8-Qbc"/>
                             <constraint firstItem="FG7-1h-1rq" firstAttribute="top" secondItem="PG2-lW-mPF" secondAttribute="bottom" constant="8" id="RwI-wZ-aOK"/>
                             <constraint firstItem="hSB-be-9e1" firstAttribute="top" secondItem="PG2-lW-mPF" secondAttribute="bottom" constant="50" id="a7g-v3-HGo"/>
@@ -311,7 +312,7 @@
                 <navigationController id="4VT-vK-VAz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Speakers" image="business-card-of-a-man-with-contact-info" id="b35-W6-C1t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dp9-cp-SSc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.40716677899999998" blue="0.2167538702" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -337,6 +338,6 @@
         <image name="twitterIcon" width="360" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zkf-yR-UM1"/>
+        <segue reference="Mcj-xw-1gx"/>
     </inferredMetricsTieBreakers>
 </document>

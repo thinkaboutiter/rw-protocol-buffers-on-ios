@@ -24,25 +24,32 @@ import UIKit
 
 class SpeakerCell: UITableViewCell {
 	
-	@IBOutlet var containerView: UIView!
-	@IBOutlet var nameLabel: UILabel!
-	@IBOutlet var profileImageView: UIImageView!
+    // MARK: - Properties
+	@IBOutlet fileprivate var containerView: UIView!
+	@IBOutlet fileprivate var nameLabel: UILabel!
+	@IBOutlet fileprivate var profileImageView: UIImageView!
 	
-	func applyBusinessCardVisual() {
-		// Apply rounded corners
-		containerView.layer.cornerRadius = 5
-		containerView.layer.masksToBounds = true
-		
-		// Circular Profile Pic
-		profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2.0
-		profileImageView.clipsToBounds = true
-		profileImageView.layer.borderWidth = 2.0
-		profileImageView.layer.borderColor = #colorLiteral(red: 0, green: 0.407166779, blue: 0.2167538702, alpha: 1).cgColor
-	}
-	
+    // MARK: - Life cycle
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		applyBusinessCardVisual()
+		self.applyBusinessCardVisual()
 	}
-	
+    
+    // MARK: - Configurations
+    fileprivate func applyBusinessCardVisual() {
+        // Apply rounded corners
+        self.containerView.layer.cornerRadius = 5
+        self.containerView.layer.masksToBounds = true
+        
+        // Circular Profile Pic
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2.0
+        self.profileImageView.clipsToBounds = true
+        self.profileImageView.layer.borderWidth = 2.0
+        self.profileImageView.layer.borderColor = #colorLiteral(red: 0, green: 0.407166779, blue: 0.2167538702, alpha: 1).cgColor
+    }
+    
+    func configure(with contact: Contact) {
+        self.profileImageView.image = UIImage(named: contact.imageName)
+        self.nameLabel.attributedText = NSAttributedString.attributedString(for: contact.firstName, and: contact.lastName)
+    }
 }

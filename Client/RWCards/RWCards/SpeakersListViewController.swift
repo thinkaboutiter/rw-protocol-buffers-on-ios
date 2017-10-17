@@ -21,9 +21,11 @@
 */
 
 import UIKit
+import SimpleLogger
 
 class SpeakersListViewController: UITableViewController {
 	
+    // MARK: - Properties
 	var speakersModel: SpeakersViewModel?
 	
 	// MARK: Appearance
@@ -31,6 +33,7 @@ class SpeakersListViewController: UITableViewController {
 		return .lightContent
 	}
 	
+    // MARK: - Life cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationController?.setNavigationBarHidden(true, animated: true)
@@ -38,6 +41,8 @@ class SpeakersListViewController: UITableViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+        
+        self.fetchSpeakers()
 	}
 	
 	// MARK: - Navigation
@@ -45,7 +50,7 @@ class SpeakersListViewController: UITableViewController {
 		if segue.identifier == "showCard" {
 			if let vc = segue.destination as? CardViewController {
 				vc.isCurrentUser = false
-				
+				vc.speaker = self.speakersModel?.selectedSpeaker
 			}
 		}
 	}
@@ -63,6 +68,9 @@ extension SpeakersListViewController {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "SpeakerCell", for: indexPath) as! SpeakerCell
+        if let speaker: Contact = self.speakersModel?.getSpeaker(for: indexPath) {
+            cell.configure(with: speaker)
+        }
 		return cell
 	}
 }
@@ -70,6 +78,22 @@ extension SpeakersListViewController {
 // MARK: - UITableView Delegate
 extension SpeakersListViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // preselect speaker
+        self.speakersModel?.selectSpeaker(for: indexPath)
+        
 		performSegue(withIdentifier: "showCard", sender: self)
 	}
+}
+
+// MARK: - Networking
+fileprivate extension SpeakersListViewController {
+    
+    func fetchSpeakers() {
+        RWService.shared.getSpeakers(success: { (speakers: Speakers) in
+            self.speakersModel = SpeakersViewModel(speakers: speakers)
+            self.tableView.reloadData()
+        }) { (error: NSError) in
+            Logger.error.message("Error fetching speakers").object(error)
+        }
+    }
 }

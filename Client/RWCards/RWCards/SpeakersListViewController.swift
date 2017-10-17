@@ -50,7 +50,7 @@ class SpeakersListViewController: UITableViewController {
 		if segue.identifier == "showCard" {
 			if let vc = segue.destination as? CardViewController {
 				vc.isCurrentUser = false
-				
+				vc.speaker = self.speakersModel?.selectedSpeaker
 			}
 		}
 	}
@@ -78,6 +78,9 @@ extension SpeakersListViewController {
 // MARK: - UITableView Delegate
 extension SpeakersListViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // preselect speaker
+        self.speakersModel?.selectSpeaker(for: indexPath)
+        
 		performSegue(withIdentifier: "showCard", sender: self)
 	}
 }

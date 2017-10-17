@@ -21,13 +21,43 @@
 */
 
 import Foundation
+import SimpleLogger
 
 class SpeakersViewModel {
+    
+    // MARK: - Properties
+    private(set) var speakers: Speakers
+    private(set) var selectedSpeaker: Contact?
+    
+    // MARK: - Initializaiton
+    init(speakers: Speakers) {
+        self.speakers = speakers
+    }
+    
+    deinit {
+        Logger.debug.message("\(String(describing: SpeakersViewModel.self)) deinitialized")
+    }
+    
+    // MARK: - TableView data
 	func numberOfRows() -> Int {
-		return 0
+		return self.speakers.contacts.count
 	}
 	
 	func numberOfSections() -> Int {
 		return 1
 	}
+    
+    // MARK: - Custom accessors
+    func getSpeaker(for indexPath: IndexPath) -> Contact? {
+        // check index
+        guard indexPath.item < self.speakers.contacts.count else {
+            Logger.error.message("Index \(indexPath.item) out of bound \(self.speakers.contacts.count)")
+            return nil
+        }
+        return self.speakers.contacts[indexPath.item]
+    }
+    
+    func selectSpeaker(for indexPath: IndexPath) {
+        self.selectedSpeaker = self.getSpeaker(for: indexPath)
+    }
 }

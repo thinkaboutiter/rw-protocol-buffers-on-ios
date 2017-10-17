@@ -82,6 +82,57 @@ class RWService {
                 success(valid_contact)
         }
     }
+    
+    func getSpeakers(
+        success: @escaping (_ speakers: Speakers) -> Void,
+        failure: @escaping (_ error: NSError) -> Void)
+    {
+        Alamofire
+            .request(
+                "\(AppConstants.ApiResource.baseUrlString)\(AppConstants.ApiResource.EndPoint.speakers)",
+                method: .get,
+                parameters: nil,
+                encoding: URLEncoding.default,
+                headers: nil)
+            .responseData { (dataResponse: DataResponse<Data>) in
+                
+                // log request and response objects
+                Logger.network.message("request:").object(dataResponse.request)
+                Logger.network.message("request.allHTTPHeaderFields:").object(dataResponse.request?.allHTTPHeaderFields)
+                Logger.network.message("response:").object(dataResponse.response)
+                Logger.network.message("timeline:").object(dataResponse.timeline)
+                
+                // check `dataResponse`
+                let responseError: NSError? = self.checkWebServiceResponse(dataResponse)
+                guard responseError == nil else {
+                    failure(responseError!)
+                    return
+                }
+                
+                // check data
+                guard let valid_data: Data = dataResponse.result.value else {
+                    Logger.error.message("Invalid result object")
+                    
+                    // create error object
+                    let error: NSError = ErrorCreator.invalidResultObject.error()
+                    failure(error)
+                    return
+                }
+                
+                // try creating a `Speakers` object
+                guard let valid_speakers: Speakers = try? Speakers(serializedData: valid_data) else {
+                    let errorMessage: String = "Unable to create \(String(describing: Contact.self)) object!"
+                    Logger.error.message(errorMessage)
+                    
+                    // create error
+                    let error: NSError = ErrorCreator.custom(code: ErrorCreator.teapotCode, message: errorMessage).error()
+                    failure(error)
+                    return
+                }
+                
+                success(valid_speakers)
+        }
+    }
 }
 
 // MARK: - Response check
